@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+
+{% block title %} regitser {% endblock %}
+
+{% block content %}
+
+
+    <div class="row">
+
+        <div class="col offset-md-3 col-md-6">
+            <div class="media">
+                <div class="media-body">
+                    <form method="post">
+
+                        {{ register_form.csrf_token() }}
+
+                        <div class="form-group">
+                            {{ register_form.name.label }}
+                            {{ register_form.name(class='form-control') }}
+                            {% for error in register_form.name.errors %}
+                                <div class="text-danger">
+                                    <strong> {{ error }} </strong>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+
+                         <div class="form-group">
+                            {{ register_form.email.label }}
+                            {{ register_form.email(class='form-control') }}
+                            {% for error in register_form.email.errors %}
+                                <div class="text-danger">
+                                    <strong> {{ error }} </strong>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="form-group">
+                            {{ register_form.password.label }}
+                            {{ register_form.password(class='form-control') }}
+                            {% for error in register_form.password.errors %}
+                                <div class="text-danger">
+                                    <strong> {{ error }} </strong>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="form-group">
+                            {{ register_form.password_confirmation.label }}
+                            {{ register_form.password_confirmation(class='form-control') }}
+                            {% for error in register_form.password_confirmation.errors %}
+                                <div class="text-danger">
+                                    <strong> {{ error }} </strong>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <button class="btn btn-primary"> register </button>
+                        </div>
+
+
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
